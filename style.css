@@ -81,12 +81,41 @@ body {
   font-weight: bold;
   color: var(--primary);
 }
+
+/* Základní styl pro navigační odkazy */
 .nav-alt3 a {
-  margin: 0 0.75rem;
-  color: var(--dark);
   text-decoration: none;
-  font-weight: 500;
+  color: #333; /* základní barva textu */
+  padding: 8px 12px;
+  transition: all 0.3s ease; /* plynulý efekt */
 }
+
+/* Hover efekt */
+.nav-alt3 a:hover {
+  color: #ffa500; /* změní barvu textu */
+  border-bottom: 2px solid #ffa500; /* přidá spodní linku */
+  }
+
+.btn-alt4 {
+  background: var(--accent);
+  color: #ffffff;
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid transparent; 
+  transition: all 0.3s ease;
+  text-align: center;
+  
+}
+
+.btn-alt3:hover {
+  background: #006a4e; 
+  color: var(--accent); 
+  border: 2px solid #006a4e; 
+  cursor: pointer;
+}
+
 .btn-alt3 {
   background: var(--accent);
   color: #ffffff;
@@ -94,15 +123,15 @@ body {
   border-radius: var(--radius);
   text-decoration: none;
   font-weight: 600;
-  border: 2px solid transparent; /* základní stav bez viditelného okraje */
-  transition: all 0.3s ease; /* plynulý efekt */
+  border: 2px solid transparent; 
+  transition: all 0.3s ease; 
   
 }
 
 .btn-alt3:hover {
-  background: #006a4e; /* při hoveru bílý podklad */
-  color: var(--accent); /* text oranžový */
-  border: 2px solid #006a4e; /* zelené ohraničení */
+  background: #006a4e; 
+  color: var(--accent); 
+  border: 2px solid #006a4e; 
   cursor: pointer;
 }
 
@@ -114,18 +143,18 @@ body {
   text-decoration: none;
   font-weight: 600;
   
-  border: 2px solid transparent; /* základní stav bez viditelného okraje */
-  transition: all 0.3s ease; /* plynulý efekt */
+  border: 2px solid transparent; 
+  transition: all 0.3s ease; 
  
-  display: inline-block; /* aby margin fungoval správně */
-  margin-top: 1rem; /* posune tlačítko dolů */
+  display: inline-block; 
+  margin-top: 1rem; 
 }
 
 
 .btn-alt2:hover {
-  background: #006a4e; /* při hoveru bílý podklad */
-  color: var(--accent); /* text oranžový */
-  border: 2px solid #006a4e; /* zelené ohraničení */
+  background: #006a4e; 
+  color: var(--accent); 
+  border: 2px solid #006a4e; 
   cursor: pointer;
 }
 
@@ -137,19 +166,53 @@ body {
   text-decoration: none;
   font-weight: 600;
   
-  border: 2px solid transparent; /* základní stav bez viditelného okraje */
-  transition: all 0.3s ease; /* plynulý efekt */
+  border: 2px solid transparent; 
+  transition: all 0.3s ease; 
  
-  display: inline-block; /* aby margin fungoval správně */
-  margin-top: 0.1rem; /* posune tlačítko dolů */
+  display: inline-block; 
+  margin-top: 0.1rem; 
 }
 
 
 .btn-alt1:hover {
-  background: #006a4e; /* při hoveru bílý podklad */
-  color: var(--accent); /* text oranžový */
-  border: 2px solid #006a4e; /* zelené ohraničení */
+  background: #006a4e; 
+  color: var(--accent);
+  border: 2px solid #006a4e; 
   cursor: pointer;
+}
+
+.akce-container {
+  max-width: 1400px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  line-height: 1.8;
+}
+
+.akce-container h1 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.akce-container h2 {
+  font-size: 1.3rem;
+  color: var(--accent);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.akce-container p,
+.akce-container li {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.akce-container ul {
+  margin: 1rem 0 1rem 1.5rem;
 }
 
 
@@ -344,11 +407,11 @@ body {
 }
 
 .map-container {
-  width: 100%;           /* přizpůsobí se rodiči */
-  max-width: 500px;      /* nastavíš maximální šířku obdélníku */
-  height: 320px;         /* pevná výška */
-  overflow: hidden;      /* skryje přebytek */
-  border-radius: var(--radius); /* zaoblení rohů */
+  width: 100%;           
+  max-width: 500px;     
+  height: 320px;         
+  overflow: hidden;      
+  border-radius: var(--radius); 
 }
 
 .map-container iframe {
@@ -414,7 +477,7 @@ body {
 
 .footer-container {
   display: flex;
-  justify-content: space-between; /* rozloží vlevo, střed, vpravo */
+  justify-content: space-between; 
   align-items: center;
   max-width: 1100px;
   margin: 0 auto;
@@ -430,7 +493,7 @@ body {
 
 .footer-left a:hover,
 .footer-right a:hover {
-  color: var(--accent); /* oranžová při hoveru */
+  color: var(--accent); 
 }
 
 
