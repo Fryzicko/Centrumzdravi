@@ -52,8 +52,9 @@
     <h2>Cena služby</h2>
     <p><strong>Vstupní měření organismu přístrojem Oberon: 1500 Kč</strong></p>
     <a href="#rezervace" class="btn-alt3">Rezervovat nyní</a>
-  </section>
 
+    
+  </section>
    <!-- Elfsight Google Reviews | Untitled Google Reviews -->
 <script src="https://elfsightcdn.com/platform.js" async></script>
 <div class="elfsight-app-cca1e2e5-13aa-4615-bee9-fd15b34ce974" data-elfsight-app-lazy></div>
@@ -102,6 +103,41 @@
     </div>
   </div>
 </footer>
+
+
+<script>
+const mediaElement = document.getElementById('media');
+const dots = document.querySelectorAll('.dot');
+let currentIndex = 0;
+
+function showMedia(index) {
+  const src = dots[index].dataset.src;
+  const type = dots[index].dataset.type || 'image';
+  if (type === 'video') {
+    mediaElement.outerHTML = `<video id="media" controls>${src}</video>`;
+  } else {
+    mediaElement.outerHTML = `${src}`;
+  }
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[index].classList.add('active');
+  currentIndex = index;
+}
+
+document.getElementById('prev').addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + dots.length) % dots.length;
+  showMedia(currentIndex);
+});
+
+document.getElementById('next').addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % dots.length;
+  showMedia(currentIndex);
+});
+
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => showMedia(index));
+});
+</script>
+
 
 </body>
 </html>
