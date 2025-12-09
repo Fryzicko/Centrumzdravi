@@ -60,6 +60,47 @@ body {
   }
 }
 
+/* Zjemnění typografie v úvodu O nás */
+.offer-alt3 h2 {
+  color: var(--primary);
+}
+.offer-alt3 p {
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  line-height: 1.75;
+}
+
+  .hero3-content h1 {
+    font-size: 2.1rem; /* drobná korekce pro menší displeje */
+  }
+
+  
+/* ---- Sticky & auto-hide navbar ---- */
+.header-alt3 {
+  position: sticky;           /* drží se nahoře */
+  top: 0;
+  z-index: 1000;
+  transition: transform 230ms ease, box-shadow 230ms ease;
+}
+
+/* schování při scrollu dolů */
+.header-alt3.nav-hide {
+  transform: translateY(-100%);
+}
+
+/* stín při posunu stránky */
+.header-alt3.nav-scrolled {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+/* volitelné: na menších displejích drobná úprava */
+@media (max-width: 480px) {
+  .nav-alt3 a { padding: 10px 8px; }
+  .form-alt3 .btn-alt3 { width: 100%; }
+}
+
+
+
 .akce-container {
   max-width: 1400px;
   margin: 2rem auto;
