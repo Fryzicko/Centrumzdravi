@@ -585,6 +585,30 @@ body {
 }
 
 
+/* ===== Hero gradient fade animace (jen když je přidána třída hero-alt3--animated) ===== */
+.hero-alt3.hero-alt3--animated {
+  /* zachováme tvůj gradient, jen ho uděláme "větší", aby se měl kam posouvat */
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  background-size: 300% 300%;
+  background-position: 0% 50%;
+
+  /* plynulý pohyb tam a zpět => efekt fade/přelévání */
+  animation: heroGradientShift 6s ease-in-out infinite alternate;
+}
+
+/* Posun pozice gradientu vytvoří vizuální prolínání barev */
+@keyframes heroGradientShift {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Respektuj uživatele s vypnutými animacemi */
+@media (prefers-reduced-motion: reduce) {
+  .hero-alt3.hero-alt3--animated {
+    animation: none;
+    background-position: 50% 50%;
+  }
+}
 
 /* Responsive */
 @media (max-width: 768px) {
