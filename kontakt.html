@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt | Centrum zdraví Brno</title>
+  <meta name="description" content="Kontaktní informace, provozní doba, mapa a rychlý kontakt." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header (sjednocené s homepage.html) -->
+  <header class="header-alt3">
+    <div class="container">
+      <a href="homepage.html" class="logo-alt3">Centrum zdraví Brno</a>
+      <nav class="nav-alt3">
+        <a href="homepage.html">Domů</a>
+        <a href="sluzby.html">Služby</a>
+        <a href="cenik.html">Ceník</a>
+        <a href="Akce.html">Akce</a>
+        <a href="kontakt.html" aria-current="page">Kontakt</a>
+      </nav>
+      <a href="homepage.html#rezervace" class="btn-alt3">Objednat</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero-alt3">
+    <div class="hero3-content">
+      <h1>Kontakt</h1>
+      <p>
+        Ozvěte se nám — rádi poradíme, domluvíme termín a zodpovíme dotazy.
+      </p>
+      <a class="btn-alt3" href="#rychly-kontakt">Rychlý kontakt</a>
+    </div>
+  </section>
+
+  <!-- Kontakty + Form -->
+  <section class="contact-alt3" id="rychly-kontakt">
+    <div class="container">
+      <h2 style="text-align:center; margin-bottom: 1.5rem;">Kontaktní informace</h2>
+
+      <div class="contact3-grid">
+        <!-- Info -->
+        <aside class="info-alt3">
+          <h3 style="margin-bottom: .75rem;">Centrum zdraví Brno</h3>
+
+          <ul class="contact-list">
+            <li class="contact-item">
+              <span class="contact-icon" aria-hidden="true">📍</span>
+              <div>
+                <strong>Adresa</strong><br />
+                Malinovského náměstí 4, 602 00 Brno
+              </div>
+            </li>
+
+            <li class="contact-item">
+              <span class="contact-icon" aria-hidden="true">📞</span>
+              <div>
+                <strong>Telefon</strong><br />
+                <a class="contact-link" href="tel:+420777109259">(+420) 777 109 259</a><br />
+                <a class="contact-link" href="tel:+420777109258">(+420) 777 109 258</a> – Iva Smolíková
+              </div>
+            </li>
+
+            <li class="contact-item">
+              <span class="contact-icon" aria-hidden="true">✉️</span>
+              <div>
+                <strong>E-mail</strong><br />
+                <a class="contact-link" href="mailto:info@centrumzdravibrno.cz">info@centrumzdravibrno.cz</a>
+              </div>
+            </li>
+
+            <li class="contact-item">
+              <span class="contact-icon" aria-hidden="true">🌐</span>
+              <div>
+                <strong>Web</strong><br />
+                <a class="contact-link" href="https://www.centrumzdravibrno.cz/" target="_blank" rel="noopener">
+                  www.centrumzdravibrno.cz
+                </a>
+              </div>
+            </li>
+          </ul>
+
+          <div class="hours-box">
+            <h4 style="margin: 1.25rem 0 .5rem;">Provozní doba</h4>
+            <div class="hours-row"><span>Pondělí – Čtvrtek</span><strong>8:00 – 20:00</strong></div>
+            <div class="hours-row"><span>Mimo pracovní dobu</span><strong>dle domluvy</strong></div>
+          </div>
+
+          <div class="billing-box">
+            <h4 style="margin: 1.25rem 0 .5rem;">Fakturační údaje</h4>
+            <p style="margin:0;">
+              SALAZARD s.r.o.<br />
+              Malinovského nám. 603/4, Brno 602 00<br />
+              IČ: 01892410 · DIČ: CZ01892410<br />
+              Spisová značka: 79707 C, Krajský soud v Brně<br />
+              Nejsme plátci DPH
+            </p>
+          </div>
+
+          <div class="team-box">
+            <h4 style="margin: 1.25rem 0 .5rem;">Tým</h4>
+            <ul class="team-list">
+              <li>Iva Smolíková</li>
+              <li>Dagmar Mičková</li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- Form -->
+        <form class="form-alt3" action="#" method="post">
+          <h3 style="margin-bottom: .25rem;">Napište nám</h3>
+          <p style="margin-top: 0; opacity:.9;">Odpovíme co nejdříve.</p>
+
+          <label>
+            Jméno
+            <input type="text" name="name" placeholder="Vaše jméno" required />
+          </label>
+
+          <label>
+            E-mail
+            <input type="email" name="email" placeholder="vas@email.cz" required />
+          </label>
+
+          <label>
+            Telefon (volitelné)
+            <input type="tel" name="phone" placeholder="+420…" />
+          </label>
+
+          <label>
+            Téma
+            <select name="topic" required>
+              <option value="" selected disabled>Vyberte téma…</option>
+              <option>Objednání / termín</option>
+              <option>Dotaz ke službám</option>
+              <option>Spolupráce</option>
+              <option>Jiné</option>
+            </select>
+          </label>
+
+          <label>
+            Zpráva
+            <textarea name="message" rows="5" placeholder="Napište zprávu…" required></textarea>
+          </label>
+
+          <button class="btn-alt3" type="submit">Odeslat</button>
+
+          <small style="opacity:.85;">
+            Odesláním souhlasíte se zpracováním osobních údajů pro účely odpovědi.
+          </small>
+        </form>
+      </div>
+
+      <!-- Mapa -->
+      <div style="margin-top: 2rem;">
+        <h2 style="text-align:center; margin-bottom: 1rem;">Kde nás najdete</h2>
+        <div class="map-container" style="max-width: 100%;">
+          <iframe
+            title="Mapa – Centrum zdraví Brno"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Malinovsk%C3%A9ho%20n%C3%A1m%C4%9Bst%C3%AD%20603%2F4%2C%20602%2000%20Brno&output=embed">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+
+<footer class="footer-alt3">
+  <div class="footer-container">
+    <div class="footer-left">
+      <a href="nakladanisos.html">Nakládání s osobními údaji</a>
+    </div>
+    <div class="footer-center">
+      © 2025 Centrum zdraví Brno — Všechna práva vyhrazena.
+    </div>
+    <div class="footer-right">
+      <a href="obchpod.html" class="footer-text">Obchodní podmínky</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
