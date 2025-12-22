@@ -60,7 +60,7 @@ body {
   }
 }
 
-/* Zjemnění typografie v úvodu O nás */
+
 .offer-alt3 h2 {
   color: var(--primary);
 }
@@ -71,34 +71,74 @@ body {
 }
 
   .hero3-content h1 {
-    font-size: 2.1rem; /* drobná korekce pro menší displeje */
+    font-size: 2.1rem; 
   }
 
   
-/* ---- Sticky & auto-hide navbar ---- */
 .header-alt3 {
-  position: sticky;           /* drží se nahoře */
+  position: sticky;           
   top: 0;
   z-index: 1000;
   transition: transform 230ms ease, box-shadow 230ms ease;
 }
 
-/* schování při scrollu dolů */
+
 .header-alt3.nav-hide {
   transform: translateY(-100%);
 }
 
-/* stín při posunu stránky */
+
 .header-alt3.nav-scrolled {
   box-shadow: 0 8px 20px rgba(0,0,0,0.06);
 }
 
-/* volitelné: na menších displejích drobná úprava */
+
+/* ===== Navbar odkazy: gradient pill hover ===== */
+.nav-alt3 a{
+  position: relative;
+  display: inline-block;
+  padding: 10px 14px;              /* vytvoří prostor pro "pill" */
+  border-radius: 999px;            /* pill tvar */
+  text-decoration: none;
+  transition: color 300ms ease, transform 300ms ease;
+}
+
+/* Gradientová vrstva pod textem */
+.nav-alt3 a::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+
+  opacity: 0;                      /* default neviditelné */
+  transform: scale(0.96);
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: -1;                     /* zůstane pod textem */
+}
+
+/* Hover / focus: gradient se ukáže + lehký pohyb */
+.nav-alt3 a:hover,
+.nav-alt3 a:focus-visible{
+  color: #fff;                     /* aby byl text čitelný na gradientu */
+  transform: translateY(-1px);
+}
+
+/* Hover: zapnout gradient a animaci */
+.nav-alt3 a:hover::before,
+.nav-alt3 a:focus-visible::before{
+  opacity: 1;
+  transform: scale(1);
+  animation: navGradientMove 1.2s ease-in-out infinite alternate;
+}
+
+
 @media (max-width: 480px) {
   .nav-alt3 a { padding: 10px 8px; }
   .form-alt3 .btn-alt3 { width: 100%; }
 }
-
 
 
 .akce-container {
@@ -159,6 +199,37 @@ body {
   font-weight: bold;
   color: var(--primary);
 }
+
+
+/* ===== Logo: gradient underline hover (subtilní) ===== */
+.logo-alt3{
+  position: relative;
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: bold;
+  padding: 6px 2px; /* jen pro prostor underline */
+}
+
+.logo-alt3::after{
+  content:"";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 3px;
+  width: 100%;
+  border-radius: 999px;
+
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease;
+}
+
+.logo-alt3:hover::after,
+.logo-alt3:focus-visible::after{
+  transform: scaleX(1);
+}
+
 .nav-alt3 a {
   margin: 0 0.75rem;
   color: var(--dark);
@@ -172,16 +243,73 @@ body {
   border-radius: var(--radius);
   text-decoration: none;
   font-weight: 600;
-  border: 2px solid transparent; /* základní stav bez viditelného okraje */
-  transition: all 0.3s ease; /* plynulý efekt */
+  border: 2px solid transparent; 
+  transition: all 0.3s ease; 
 
 }
 
 .btn-alt3:hover {
-  background: #006a4e; /* při hoveru bílý podklad */
-  color: var(--accent); /* text oranžový */
-  border: 2px solid #006a4e; /* zelené ohraničení */
+  background: #006a4e; 
+  color: var(--accent); 
+  border: 2px solid #006a4e; 
   cursor: pointer;
+}
+
+/*.btn-alt3: gradient pill hover */
+.btn-alt3{
+  position: relative;
+  overflow: hidden;           
+  isolation: isolate;         
+  
+  transition: color 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+}
+
+/* gradient vrstva pod textem */
+.btn-alt3::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
+
+  background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+
+  opacity: 0;                /* normálně neviditelné */
+  transform: scale(0.97);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+/* hover: neschovat gradient tím, že bychom malovali jiným backgroundem */
+.btn-alt3:hover,
+.btn-alt3:focus-visible{
+  background: transparent;    /* důležité: jinak by překrylo gradient */
+  color: #fff;                /* čitelné na gradientu */
+  border-color: transparent;  /* ať neprosvítá starý border */
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+}
+
+/* hover: zobrazit gradient + animace */
+.btn-alt3:hover::before,
+.btn-alt3:focus-visible::before{
+  opacity: 1;
+  transform: scale(1);
+  animation: btnGradientMove 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes btnGradientMove{
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* přístupnost: kdo nechce animace */
+@media (prefers-reduced-motion: reduce){
+  .btn-alt3:hover::before,
+  .btn-alt3:focus-visible::before{
+    animation: none;
+  }
 }
 
 .btn-alt2 {
@@ -192,18 +320,18 @@ body {
   text-decoration: none;
   font-weight: 600;
 
-  border: 2px solid transparent; /* základní stav bez viditelného okraje */
-  transition: all 0.3s ease; /* plynulý efekt */
+  border: 2px solid transparent; 
+  transition: all 0.3s ease; 
 
-  display: inline-block; /* aby margin fungoval správně */
-  margin-top: 1rem; /* posune tlačítko dolů */
+  display: inline-block; 
+  margin-top: 1rem; 
 }
 
 
 .btn-alt2:hover {
-  background: #006a4e; /* při hoveru bílý podklad */
-  color: var(--accent); /* text oranžový */
-  border: 2px solid #006a4e; /* zelené ohraničení */
+  background: #006a4e; 
+  color: var(--accent); 
+  border: 2px solid #006a4e; 
   cursor: pointer;
 }
 
@@ -215,18 +343,18 @@ body {
   text-decoration: none;
   font-weight: 600;
 
-  border: 2px solid transparent; /* základní stav bez viditelného okraje */
-  transition: all 0.3s ease; /* plynulý efekt */
+  border: 2px solid transparent; 
+  transition: all 0.3s ease; 
 
-  display: inline-block; /* aby margin fungoval správně */
-  margin-top: 0.1rem; /* posune tlačítko dolů */
+  display: inline-block; 
+  margin-top: 0.1rem; 
 }
 
 
 .btn-alt1:hover {
-  background: #006a4e; /* při hoveru bílý podklad */
-  color: var(--accent); /* text oranžový */
-  border: 2px solid #006a4e; /* zelené ohraničení */
+  background: #006a4e; 
+  color: var(--accent); 
+  border: 2px solid #006a4e; 
   cursor: pointer;
 }
 
@@ -300,6 +428,31 @@ body {
   }
 }
 
+.card-alt2{
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+.circle-alt2 {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.card-alt2 h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.15rem;
+}
+
 
 
 .card-alt3 {
@@ -326,6 +479,139 @@ body {
   margin-bottom: 0.5rem;
   font-size: 1.15rem;
 }
+
+
+/* ===== Cards: fotka místo emoji v .circle-alt3 ===== */
+.circle-alt3{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  /* čistý "ring" + jemný stín */
+  background: #fff;
+  border: 2px solid rgba(0,0,0,0.06);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+
+  /* už tohle máš, nechávám pro jistotu */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* samotná fotka */
+.circle-alt3 img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* ořízne a vyplní kruh */
+  display: block;
+  transform: scale(1.02); /* mikro “zoom”, aby nevznikly prázdné okraje */
+}
+
+/* volitelné: jemný hover efekt celé karty */
+.card-alt3:hover .circle-alt3{
+  border-color: rgba(0,106,78,0.25); /* lehce do primary */
+  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+}
+
+
+.circle-alt3{
+  position: relative;
+}
+
+.circle-alt3::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0,106,78,.25), rgba(255,165,0,.25));
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.card-alt3:hover .circle-alt3::after{
+  opacity: 1;
+}
+
+
+/* ===== Větší kartičky + větší kruhy (override) ===== */
+
+/* větší rozestupy mezi kartami (volitelné) */
+.cards-alt3{
+  gap: 2rem; /* bylo 1.5rem */
+}
+
+/* samotná kartička */
+.card-alt3{
+  padding: 2.6rem 2.1rem;      /* bylo cca 2rem 1.5rem */
+  border-radius: calc(var(--radius) + 4px);
+  min-height: 280px;           /* aby působily robustněji */
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+}
+
+/* nadpis v kartě */
+.card-alt3 h3{
+  font-size: 1.25rem;          /* bylo cca 1.15rem */
+  margin-bottom: 0.75rem;
+}
+
+/* text v kartě */
+.card-alt3 p{
+  font-size: 1.05rem;          /* lehce větší */
+  line-height: 1.7;
+}
+
+/* kruh s ikonou/obrázkem */
+.circle-alt3{
+  width: 84px;                 /* bylo 60px */
+  height: 84px;
+  font-size: 2rem;             /* emoji větší */
+  margin: 0 auto 1.2rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.10);
+}
+
+/* když bude uvnitř obrázek místo emoji */
+.circle-alt3 img{
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Responzivní doladění – ať to není přehnané na mobilu */
+@media (max-width: 768px){
+  .card-alt3{
+    padding: 2.2rem 1.6rem;
+    min-height: 0;             /* na menších displejích klidně bez pevné výšky */
+  }
+  .circle-alt3{
+    width: 74px;
+    height: 74px;
+    font-size: 1.85rem;
+  }
+  .circle-alt3 img{
+    width: 46px;
+    height: 46px;
+  }
+}
+
+@media (max-width: 480px){
+  .cards-alt3{
+    gap: 1.3rem;
+  }
+  .card-alt3{
+    padding: 2rem 1.4rem;
+  }
+  .circle-alt3{
+    width: 68px;
+    height: 68px;
+    font-size: 1.75rem;
+  }
+}
+
+
+
+
 
 /* Process */
 .process-alt3 {
@@ -422,11 +708,11 @@ body {
 }
 
 .map-container {
-  width: 100%;           /* přizpůsobí se rodiči */
-  max-width: 500px;      /* nastavíš maximální šířku obdélníku */
-  height: 320px;         /* pevná výška */
-  overflow: hidden;      /* skryje přebytek */
-  border-radius: var(--radius); /* zaoblení rohů */
+  width: 100%;           
+  max-width: 500px;      
+  height: 320px;         
+  overflow: hidden;      
+  border-radius: var(--radius); 
 }
 
 .map-container iframe {
@@ -492,7 +778,7 @@ body {
 
 .footer-container {
   display: flex;
-  justify-content: space-between; /* rozloží vlevo, střed, vpravo */
+  justify-content: space-between; 
   align-items: center;
   max-width: 1100px;
   margin: 0 auto;
@@ -508,12 +794,12 @@ body {
 
 .footer-left a:hover,
 .footer-right a:hover {
-  color: var(--accent); /* oranžová při hoveru */
+  color: var(--accent); 
 }
 
 
 
-/* Kontakt – doplňky (textarea + pěkné řádky kontaktů) */
+/* Kontakt */
 .form-alt3 textarea{
   padding: 0.75rem 1rem;
   border: 1px solid #ccc;
@@ -585,24 +871,21 @@ body {
 }
 
 
-/* ===== Hero gradient fade animace (jen když je přidána třída hero-alt3--animated) ===== */
+/*  Hero  animace */
 .hero-alt3.hero-alt3--animated {
-  /* zachováme tvůj gradient, jen ho uděláme "větší", aby se měl kam posouvat */
   background: linear-gradient(135deg, var(--primary), var(--accent));
   background-size: 300% 300%;
   background-position: 0% 50%;
 
-  /* plynulý pohyb tam a zpět => efekt fade/přelévání */
+ 
   animation: heroGradientShift 6s ease-in-out infinite alternate;
 }
 
-/* Posun pozice gradientu vytvoří vizuální prolínání barev */
 @keyframes heroGradientShift {
   0%   { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
 }
 
-/* Respektuj uživatele s vypnutými animacemi */
 @media (prefers-reduced-motion: reduce) {
   .hero-alt3.hero-alt3--animated {
     animation: none;
