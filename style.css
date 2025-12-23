@@ -313,7 +313,7 @@ body {
 }
 
 .btn-alt2 {
-  background: var(--accent);
+  background: var(#00805e);
   color: #ffffff;
   padding: 0.25rem 1.5rem;
   border-radius: var(--radius);
@@ -609,6 +609,101 @@ body {
   }
 }
 
+
+/* ===== Moderní YouTube okno ===== */
+.yt-section{ padding: 3.5rem 0; }
+.yt-head{ text-align:center; margin-bottom: 1.25rem; }
+.yt-title{ font-size: 2rem; color: var(--primary); margin-bottom: .35rem; }
+.yt-subtitle{ max-width: 720px; margin: 0 auto; opacity: .9; }
+
+.yt-card{
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(0,106,78,.95), rgba(255,165,0,.95));
+  padding: 2px;
+  box-shadow: 0 14px 40px rgba(0,0,0,.12);
+}
+
+.yt-thumb, .yt-iframe-wrap{
+  width: 100%;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: block;
+  background: #0b0f0d;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  cursor: pointer;
+}
+
+.yt-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  filter: saturate(1.05) contrast(1.05);
+}
+
+.yt-thumb::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(0,0,0,.05), rgba(0,0,0,.55));
+}
+
+.yt-play{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  z-index:2;
+}
+
+.yt-play-icon{
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+  position: relative;
+  transition: transform 180ms ease background 180ms ease;
+}
+.yt-play-icon::before{
+  content:"";
+  position:absolute;
+  left: 30px;
+  top: 23px;
+  width: 0;
+  height: 0;
+  border-left: 22px solid var(--primary);
+  border-top: 13px solid transparent;
+  border-bottom: 13px solid transparent;
+}
+
+.yt-card:hover{ box-shadow: 0 18px 52px rgba(0,0,0,.16); }
+.yt-card:hover .yt-play-icon{ transform: scale(1.05); background: #fff; }
+
+.yt-thumb:focus-visible{
+  outline: 3px solid rgba(255,165,0,.6);
+  outline-offset: 4px;
+  border-radius: 18px;
+}
+
+.yt-iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .yt-card, .yt-play-icon{ transition:none; }
+}
 
 
 

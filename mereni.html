@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Měření z kapky krve | Centrum zdraví Brno</title>
+  <meta name="description" content="Darkfield mikroskopie živé a suché krve. Ukázkové video a základní informace." />
+  <link rel="stylesheet" href="style.css" />
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header-alt3">
+    <div class="container">
+      <a href="homepage.html" class="logo-alt3">Centrum zdraví Brno</a>
+      <nav class="nav-alt3">
+        <a href="homepage.html">Domů</a>
+        <a href="sluzby.html">Služby</a>
+        <a href="cenik.html">Ceník</a>
+        <a href="Akce.html">Akce</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+      <a href="homepage.html#rezervace" class="btn-alt3">Objednat</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero-alt3 hero-alt3--animated">
+    <div class="hero3-content">
+      <h1>Měření z kapky krve</h1>
+      <p>
+        Darkfield mikroskopie živé a suché krve – podívejte se na ukázku, jak vyšetření vypadá.
+      </p>
+      <a class="btn-alt3" href="#video">Pustit video</a>
+    </div>
+  </section>
+
+  <!-- Obsah -->
+  <section class="offer-alt3">
+    <div class="container">
+      <h2>O službě</h2>
+      <p>
+        Darkfield microscopy živé a suché krve umožňuje sledovat jevy a komponenty v krvi, které se běžně
+        nesledují při standardním vyšetření krve v ordinacích a laboratořích. 
+      </p>
+
+      <div class="cards-alt3">
+        <article class="card-alt3">
+          <div class="circle-alt3">🔬</div>
+          <h3>Technika</h3>
+          <p>Vysoce nadstandardní mikroskopické pozorování krve v temném poli (darkfield). </p>
+        </article>
+
+        <article class="card-alt3">
+          <div class="circle-alt3">📺</div>
+          <h3>Ukázka</h3>
+          <p>Součástí jsou fotografie a video – „Ukázka měření z kapky krve“.  </p>
+        </article>
+
+        <article class="card-alt3">
+          <div class="circle-alt3">💳</div>
+          <h3>Cena</h3>
+          <p>Vstupní darkfield analýza živé kapky krve: <strong>1500 Kč</strong></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+<!-- YouTube blok -->
+<section class="yt-section">
+  <div class="container">
+    <div class="yt-head">
+      <h2 class="yt-title">Video: ukázka měření z kapky krve</h2>
+      <p class="yt-subtitle">Kliknutím spustíte video (načítá se až po kliknutí).</p>
+    </div>
+
+    <div class="yt-card" data-video="LgVcskgHnJo" data-title="Vyšetření z kapky krve">
+      <button class="yt-thumb" type="button" aria-label="Přehrát video: Vyšetření z kapky krve">
+        <img class="yt-img" src="https://www.youtube.com/watch?v=LgVcskgHnJo" alt="Náhled videa">
+        <span class="yt-play" aria-hidden="true"><span class="yt-play-icon"></span></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer class="footer-alt3">
+    <div class="footer-container">
+      <div class="footer-left">© 2025 Centrum zdraví Brno</div>
+      <div class="footer-right">
+        <a href="obchpod.html">Obchodní podmínky</a> ·
+        <a href="nakladanisos.html">Nakládání s osobními údaji</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const cards = document.querySelectorAll(".yt-card[data-video]");
+      cards.forEach(card => {
+        const id = card.dataset.video;
+        const title = card.dataset.title || "YouTube video";
+        const btn = card.querySelector(".yt-thumb");
+        if (!btn || !id) return;
+
+        btn.addEventListener("click", () => {
+          if (card.dataset.loaded === "1") return;
+          card.dataset.loaded = "1";
+
+          const wrap = document.createElement("div");
+          wrap.className = "yt-iframe-wrap";
+
+          const iframe = document.createElement("iframe");
+          iframe.className = "yt-iframe";
+          iframe.title = title;
+          iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+          iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+          iframe.allowFullscreen = true;
+
+          wrap.appendChild(iframe);
+          btn.replaceWith(wrap);
+        });
+      });
+    })();
+  </script>
+
+  
+<script>
+(function(){
+  document.querySelectorAll(".yt-card[data-video]").forEach(card => {
+    const id = card.dataset.video;
+    const title = card.dataset.title || "YouTube video";
+    const btn = card.querySelector(".yt-thumb");
+    if(!btn || !id) return;
+
+    btn.addEventListener("click", () => {
+      if(card.dataset.loaded === "1") return;
+      card.dataset.loaded = "1";
+
+      const wrap = document.createElement("div");
+      wrap.className = "yt-iframe-wrap";
+
+      const iframe = document.createElement("iframe");
+      iframe.className = "yt-iframe";
+      iframe.title = title;
+
+      // privacy-enhanced domain
+      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.allowFullscreen = true;
+
+      // klíčové pro Error 153 na některých webech / politikách
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+
+      wrap.appendChild(iframe);
+      btn.replaceWith(wrap);
+    });
+  });
+})();
+</script>
+
+
+</body>
+</html>
